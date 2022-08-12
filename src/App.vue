@@ -1,85 +1,74 @@
-<script setup>
-import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
-</script>
-
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
+  <nav className="navbar navbar-expand-lg bg-light">
+    <div className="container-fluid">
+      <a className="navbar-brand" href="#">
+        <img src="/src/assets/images/logo_kabus.png" alt="" width="50" height="50"
+             className="d-inline-block">
+        <span> Kamus</span>
+      </a>
+      <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span className="navbar-toggler-icon"></span>
+      </button>
+      <div className="collapse navbar-collapse" id="navbarNav">
+        <ul className="navbar-nav mx-auto">
+          <li className="nav-item">
+            <a className="nav-link">
+              <router-link to="/">Home</router-link>
+            </a>
+          </li>
+          <li className="nav-item">
+            <a className="nav-link">
+              <router-link to="/gaul">Kamus gaul</router-link>
+            </a>
+          </li>
+          <li className="nav-item">
+            <a className="nav-link">
+              <router-link to="/dayak">Dayak Language</router-link>
+            </a>
+          </li>
+        </ul>
+      </div>
     </div>
-  </header>
-
-  <RouterView />
+  </nav>
+  <router-view/>
 </template>
 
+<script>
+
+</script>
+
+
 <style scoped>
-header {
-  line-height: 1.5;
-  max-height: 100vh;
+.navbar {
+  background-color: white !important;
 }
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
+.navbar-brand span {
+  font-size: 1.4em;
 }
 
-nav {
-  width: 100%;
-  font-size: 12px;
-  text-align: center;
-  margin-top: 2rem;
+.navbar-nav .nav-item {
+  margin-right: 1.2em;
 }
 
-nav a.router-link-exact-active {
-  color: var(--color-text);
+.navbar-nav a {
+  text-decoration: none;
+  font-size: 1.1em;
+  color: black;
 }
 
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
+.navbar-nav a:hover {
+  color: forestgreen;
 }
 
-nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
-}
+/*#footer {*/
+/*  bottom: 0px;*/
+/*  padding-top: 1em;*/
+/*  padding-bottom: 0.7em;*/
+/*  background-color: #d5c8b7;*/
+/*  color: black;*/
+/*  font-family: "Poppins-Regular",serif;*/
+/*}*/
 
-nav a:first-of-type {
-  border: 0;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
-  }
-}
 </style>

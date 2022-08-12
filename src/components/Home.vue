@@ -1,43 +1,97 @@
-<script setup>
-defineProps({
-  msg: {
-    type: String,
-    required: true
-  }
-})
-</script>
-
 <template>
-  <div class="greetings">
-    <h1 class="green">{{ msg }}</h1>
-    <h3>
-      You’ve successfully created a project with
-      <a target="_blank" href="https://vitejs.dev/">Vite</a> +
-      <a target="_blank" href="https://vuejs.org/">Vue 3</a>.
-    </h3>
-  </div>
+  <main>
+    <div class="container content">
+      <h1 class="slide-left">Welcome <br> to the dictionary</h1>
+      <p class="slide-left">The first site that brings together the meaning of Indonesian slang and the learning of the
+        Dayak language</p>
+      <div class="links slide-left">
+        <a href="#" class="btn">Learn More</a>
+        <a href="#">Contact</a>
+      </div>
+    </div>
+  </main>
 </template>
 
+<script>
+export default {
+  name: "Home"
+}
+</script>
+
 <style scoped>
-h1 {
-  font-weight: 500;
-  font-size: 2.6rem;
-  top: -10px;
+main {
+  width: 100%;
+  height: 100vh;
+  background-image: linear-gradient(rgba(82, 82, 85, 0.5), rgba(82, 82, 85, 0.5)), url("../assets/images/background.jpg");
+  background-position: center;
+  background-size: cover;
+  overflow-x: hidden;
 }
 
-h3 {
-  font-size: 1.2rem;
+.content {
+  padding-top: 9%;
+  color: white;
 }
 
-.greetings h1,
-.greetings h3 {
-  text-align: center;
+.content h1 {
+  font-size: 110px;
+  line-height: 110px;
+  font-weight: 600;
+  margin-bottom: 30px;
 }
 
-@media (min-width: 1024px) {
-  .greetings h1,
-  .greetings h3 {
-    text-align: left;
+.content p {
+  max-width: 500px;
+  line-height: 28px;
+  font-size: 1.1em;
+  opacity: 0;
+}
+
+.links {
+  margin-top: 30px;
+  opacity: 0;
+}
+
+.links a {
+  color: white;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn {
+  border: 2px solid white;
+  padding: 10px 35px;
+  border-radius: 30px;
+  margin-right: 15px;
+}
+
+.slide-left {
+  animation: slideleft 1s linear forwards;
+}
+
+@keyframes slideleft {
+  0% {
+    transform: translate(100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(0px);
+    opacity: 1;
+  }
+}
+
+p.slide-left {
+  animation-delay: 1s;
+}
+
+.links.slide-left {
+  animation-delay: 2s;
+}
+
+@media only screen and (max-width: 768px) {
+  .content h1 {
+    font-size: 80px;
+    line-height: 90px;
   }
 }
 </style>
